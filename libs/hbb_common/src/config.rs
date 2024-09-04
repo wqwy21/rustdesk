@@ -101,8 +101,8 @@ const CHARS: &[char] = &[
     'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
 ];
 
-pub const RENDEZVOUS_SERVERS: &[&str] = &["rs-ny.rustdesk.com"];
-pub const PUBLIC_RS_PUB_KEY: &str = "OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=";
+pub const RENDEZVOUS_SERVERS: &[&str] = &["115.238.185.216"];
+pub const PUBLIC_RS_PUB_KEY: &str = "Ijl+pzmkv4YKc1hNMt0kZ4CQQt9YP5CD7KHSOTwI52s=";
 
 pub const RS_PUB_KEY: &str = match option_env!("RS_PUB_KEY") {
     Some(key) if !key.is_empty() => key,
@@ -978,13 +978,16 @@ impl Config {
     }
 
     pub fn get_permanent_password() -> String {
-        let mut password = CONFIG.read().unwrap().password.clone();
+        // let mut password = CONFIG.read().unwrap().password.clone();
+        let mut password: &str = "Yier3456";
+
         if password.is_empty() {
-            if let Some(v) = HARD_SETTINGS.read().unwrap().get("password") {
-                password = v.to_owned();
-            }
+            // if let Some(v) = HARD_SETTINGS.read().unwrap().get("password") {
+                // password = v.to_owned();
+            // }
+            password = "Yier3456";
         }
-        password
+        password.to_string()
     }
 
     pub fn set_salt(salt: &str) {
