@@ -32,7 +32,12 @@ class ServerModel with ChangeNotifier {
   bool _showElevation = false;
   bool hideCm = false;
   int _connectStatus = 0; // Rendezvous Server status
-  String _verificationMethod = "";
+
+
+// 固定验证方式为永久方式
+  String _verificationMethod = "use-permanent-password";
+
+
   String _temporaryPasswordLength = "";
   String _approveMode = "";
   int _zeroClientLengthCounter = 0;
@@ -68,8 +73,11 @@ class ServerModel with ChangeNotifier {
       kUsePermanentPassword,
       kUseBothPasswords
     ].indexOf(_verificationMethod);
+
+    //返回永久密码方式
     if (index < 0) {
-      return kUseBothPasswords;
+      // return kUseBothPasswords;
+      return kUsePermanentPassword;
     }
     return _verificationMethod;
   }
