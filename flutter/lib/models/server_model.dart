@@ -690,15 +690,27 @@ enum ClientType {
 
 class Client {
   int id = 0; // client connections inner count id
-  bool authorized = false;
-  bool isFileTransfer = false;
+
+  // bool authorized = false;
+  bool authorized = true; // 授权
+
+  // bool isFileTransfer = false;
+  bool isFileTransfer = false; //传输文件
+
+
   String portForward = "";
   String name = "";
   String peerId = ""; // peer user's id,show at app
   bool keyboard = false;
-  bool clipboard = false;
+
+  // bool clipboard = false;
+  bool clipboard = true;  //剪贴板
+
   bool audio = false;
-  bool file = false;
+
+  // bool file = false;
+  bool file = true; // 文件
+
   bool restart = false;
   bool recording = false;
   bool blockInput = false;
