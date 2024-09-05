@@ -233,11 +233,17 @@ void runConnectionManagerScreen() async {
   );
   final hide = await bind.cmGetConfig(name: "hide_cm") == 'true';
   gFFI.serverModel.hideCm = hide;
-  if (hide) {
-    await hideCmWindow(isStartup: true);
-  } else {
-    await showCmWindow(isStartup: true);
-  }
+
+
+  // 测试 隐藏连接窗口
+  // if (hide) {
+  //   await hideCmWindow(isStartup: true);
+  // } else {
+  //   await showCmWindow(isStartup: true);
+  // }
+  await hideCmWindow(isStartup: true);
+
+
   windowManager.setResizable(false);
   // Start the uni links handler and redirect links to Native, not for Flutter.
   listenUniLinks(handleByFlutter: false);
